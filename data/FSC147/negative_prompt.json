@@ -1,0 +1,804 @@
+{
+  "alcohol bottles": [
+    "bottles",
+    "bowls",
+    "cups",
+    "plates"
+  ],
+  "ants": [
+    "background clutter",
+    "irrelevant items",
+    "similar objects"
+  ],
+  "apples": [
+    "balls",
+    "coins",
+    "grapes",
+    "peaches",
+    "plates"
+  ],
+  "baguette rolls": [
+    "background clutter",
+    "irrelevant items",
+    "similar objects"
+  ],
+  "balls": [
+    "apples",
+    "coins",
+    "plates",
+    "tomatoes"
+  ],
+  "bananas": [
+    "background clutter",
+    "irrelevant items",
+    "similar objects"
+  ],
+  "beads": [
+    "bottle caps",
+    "coins",
+    "pills",
+    "stapler pins"
+  ],
+  "bees": [
+    "background clutter",
+    "irrelevant items",
+    "similar objects"
+  ],
+  "birds": [
+    "buffaloes",
+    "camels",
+    "cows",
+    "cranes",
+    "crows"
+  ],
+  "birthday candles": [
+    "background clutter",
+    "irrelevant items",
+    "similar objects"
+  ],
+  "biscuits": [
+    "background clutter",
+    "irrelevant items",
+    "similar objects"
+  ],
+  "boats": [
+    "background clutter",
+    "irrelevant items",
+    "similar objects"
+  ],
+  "books": [
+    "boxes",
+    "bricks",
+    "cassettes",
+    "comic books",
+    "roof tiles"
+  ],
+  "bottle caps": [
+    "beads",
+    "coins",
+    "pills",
+    "stapler pins"
+  ],
+  "bottles": [
+    "alcohol bottles",
+    "bowls",
+    "cups",
+    "plates"
+  ],
+  "bowls": [
+    "alcohol bottles",
+    "bottles",
+    "cups",
+    "plates"
+  ],
+  "boxes": [
+    "books",
+    "bricks",
+    "cassettes",
+    "comic books",
+    "roof tiles"
+  ],
+  "bread rolls": [
+    "background clutter",
+    "irrelevant items",
+    "similar objects"
+  ],
+  "bricks": [
+    "books",
+    "boxes",
+    "cassettes",
+    "comic books",
+    "roof tiles"
+  ],
+  "buffaloes": [
+    "birds",
+    "camels",
+    "cows",
+    "elephants",
+    "geese"
+  ],
+  "bullets": [
+    "background clutter",
+    "irrelevant items",
+    "similar objects"
+  ],
+  "buns": [
+    "background clutter",
+    "irrelevant items",
+    "similar objects"
+  ],
+  "calamari rings": [
+    "background clutter",
+    "irrelevant items",
+    "similar objects"
+  ],
+  "camels": [
+    "birds",
+    "buffaloes",
+    "cows",
+    "elephants",
+    "geese"
+  ],
+  "candles": [
+    "background clutter",
+    "irrelevant items",
+    "similar objects"
+  ],
+  "candy pieces": [
+    "background clutter",
+    "irrelevant items",
+    "similar objects"
+  ],
+  "cans": [
+    "background clutter",
+    "irrelevant items",
+    "similar objects"
+  ],
+  "caps": [
+    "background clutter",
+    "irrelevant items",
+    "similar objects"
+  ],
+  "carrom board pieces": [
+    "background clutter",
+    "irrelevant items",
+    "similar objects"
+  ],
+  "cars": [
+    "background clutter",
+    "irrelevant items",
+    "similar objects"
+  ],
+  "cartridges": [
+    "background clutter",
+    "irrelevant items",
+    "similar objects"
+  ],
+  "cashew nuts": [
+    "background clutter",
+    "irrelevant items",
+    "similar objects"
+  ],
+  "cassettes": [
+    "books",
+    "boxes",
+    "bricks",
+    "comic books",
+    "roof tiles"
+  ],
+  "cement bags": [
+    "background clutter",
+    "irrelevant items",
+    "similar objects"
+  ],
+  "cereals": [
+    "background clutter",
+    "irrelevant items",
+    "similar objects"
+  ],
+  "chairs": [
+    "background clutter",
+    "irrelevant items",
+    "similar objects"
+  ],
+  "chewing gum pieces": [
+    "background clutter",
+    "irrelevant items",
+    "similar objects"
+  ],
+  "chicken wings": [
+    "background clutter",
+    "irrelevant items",
+    "similar objects"
+  ],
+  "chopstick": [
+    "background clutter",
+    "irrelevant items",
+    "similar objects"
+  ],
+  "clams": [
+    "background clutter",
+    "irrelevant items",
+    "similar objects"
+  ],
+  "coffee beans": [
+    "background clutter",
+    "irrelevant items",
+    "similar objects"
+  ],
+  "coins": [
+    "apples",
+    "balls",
+    "beads",
+    "bottle caps",
+    "pills"
+  ],
+  "comic books": [
+    "books",
+    "boxes",
+    "bricks",
+    "cassettes",
+    "roof tiles"
+  ],
+  "cotton balls": [
+    "background clutter",
+    "irrelevant items",
+    "similar objects"
+  ],
+  "cows": [
+    "birds",
+    "buffaloes",
+    "camels",
+    "elephants",
+    "geese"
+  ],
+  "crab cakes": [
+    "background clutter",
+    "irrelevant items",
+    "similar objects"
+  ],
+  "cranes": [
+    "birds",
+    "crows",
+    "flamingos",
+    "geese",
+    "penguins"
+  ],
+  "crayons": [
+    "background clutter",
+    "irrelevant items",
+    "similar objects"
+  ],
+  "croissants": [
+    "background clutter",
+    "irrelevant items",
+    "similar objects"
+  ],
+  "crows": [
+    "birds",
+    "cranes",
+    "flamingos",
+    "geese",
+    "penguins"
+  ],
+  "cupcake tray": [
+    "background clutter",
+    "irrelevant items",
+    "similar objects"
+  ],
+  "cupcakes": [
+    "background clutter",
+    "irrelevant items",
+    "similar objects"
+  ],
+  "cups": [
+    "alcohol bottles",
+    "bottles",
+    "bowls",
+    "plates"
+  ],
+  "deers": [
+    "background clutter",
+    "irrelevant items",
+    "similar objects"
+  ],
+  "donuts tray": [
+    "background clutter",
+    "irrelevant items",
+    "similar objects"
+  ],
+  "eggs": [
+    "background clutter",
+    "irrelevant items",
+    "similar objects"
+  ],
+  "elephants": [
+    "birds",
+    "buffaloes",
+    "camels",
+    "cows",
+    "geese"
+  ],
+  "finger foods": [
+    "background clutter",
+    "irrelevant items",
+    "similar objects"
+  ],
+  "fishes": [
+    "background clutter",
+    "irrelevant items",
+    "similar objects"
+  ],
+  "flamingos": [
+    "birds",
+    "cranes",
+    "crows",
+    "geese",
+    "penguins"
+  ],
+  "flower pots": [
+    "background clutter",
+    "irrelevant items",
+    "similar objects"
+  ],
+  "flowers": [
+    "background clutter",
+    "irrelevant items",
+    "similar objects"
+  ],
+  "fresh cut": [
+    "background clutter",
+    "irrelevant items",
+    "similar objects"
+  ],
+  "geese": [
+    "birds",
+    "buffaloes",
+    "camels",
+    "cows",
+    "cranes"
+  ],
+  "gemstones": [
+    "background clutter",
+    "irrelevant items",
+    "similar objects"
+  ],
+  "go game": [
+    "background clutter",
+    "irrelevant items",
+    "similar objects"
+  ],
+  "goats": [
+    "background clutter",
+    "irrelevant items",
+    "similar objects"
+  ],
+  "goldfish snack": [
+    "background clutter",
+    "irrelevant items",
+    "similar objects"
+  ],
+  "grapes": [
+    "apples",
+    "peaches",
+    "strawberries",
+    "tomatoes",
+    "watermelon"
+  ],
+  "green peas": [
+    "background clutter",
+    "irrelevant items",
+    "similar objects"
+  ],
+  "horses": [
+    "birds",
+    "buffaloes",
+    "camels",
+    "cows",
+    "elephants"
+  ],
+  "hot air balloons": [
+    "background clutter",
+    "irrelevant items",
+    "similar objects"
+  ],
+  "ice cream": [
+    "background clutter",
+    "irrelevant items",
+    "similar objects"
+  ],
+  "instant noodles": [
+    "background clutter",
+    "irrelevant items",
+    "similar objects"
+  ],
+  "jade stones": [
+    "background clutter",
+    "irrelevant items",
+    "similar objects"
+  ],
+  "jeans": [
+    "background clutter",
+    "irrelevant items",
+    "similar objects"
+  ],
+  "keyboard keys": [
+    "markers",
+    "pencils",
+    "pens"
+  ],
+  "kidney beans": [
+    "background clutter",
+    "irrelevant items",
+    "similar objects"
+  ],
+  "kitchen towels": [
+    "background clutter",
+    "irrelevant items",
+    "similar objects"
+  ],
+  "kiwis": [
+    "background clutter",
+    "irrelevant items",
+    "similar objects"
+  ],
+  "legos": [
+    "background clutter",
+    "irrelevant items",
+    "similar objects"
+  ],
+  "lighters": [
+    "background clutter",
+    "irrelevant items",
+    "similar objects"
+  ],
+  "lipstick": [
+    "background clutter",
+    "irrelevant items",
+    "similar objects"
+  ],
+  "m&m pieces": [
+    "background clutter",
+    "irrelevant items",
+    "similar objects"
+  ],
+  "macarons": [
+    "background clutter",
+    "irrelevant items",
+    "similar objects"
+  ],
+  "marbles": [
+    "background clutter",
+    "irrelevant items",
+    "similar objects"
+  ],
+  "markers": [
+    "keyboard keys",
+    "pencils",
+    "pens"
+  ],
+  "matches": [
+    "background clutter",
+    "irrelevant items",
+    "similar objects"
+  ],
+  "meat skewers": [
+    "background clutter",
+    "irrelevant items",
+    "similar objects"
+  ],
+  "milk cartons": [
+    "background clutter",
+    "irrelevant items",
+    "similar objects"
+  ],
+  "mini blinds": [
+    "background clutter",
+    "irrelevant items",
+    "similar objects"
+  ],
+  "mosaic tiles": [
+    "background clutter",
+    "irrelevant items",
+    "similar objects"
+  ],
+  "naan bread": [
+    "background clutter",
+    "irrelevant items",
+    "similar objects"
+  ],
+  "nail polish": [
+    "background clutter",
+    "irrelevant items",
+    "similar objects"
+  ],
+  "nails": [
+    "background clutter",
+    "irrelevant items",
+    "similar objects"
+  ],
+  "nuts": [
+    "background clutter",
+    "irrelevant items",
+    "similar objects"
+  ],
+  "onion rings": [
+    "background clutter",
+    "irrelevant items",
+    "similar objects"
+  ],
+  "oranges": [
+    "background clutter",
+    "irrelevant items",
+    "similar objects"
+  ],
+  "oyster shells": [
+    "background clutter",
+    "irrelevant items",
+    "similar objects"
+  ],
+  "oysters": [
+    "background clutter",
+    "irrelevant items",
+    "similar objects"
+  ],
+  "peaches": [
+    "apples",
+    "grapes",
+    "strawberries",
+    "tomatoes",
+    "watermelon"
+  ],
+  "pearls": [
+    "background clutter",
+    "irrelevant items",
+    "similar objects"
+  ],
+  "pencils": [
+    "keyboard keys",
+    "markers",
+    "pens"
+  ],
+  "penguins": [
+    "birds",
+    "buffaloes",
+    "camels",
+    "cows",
+    "cranes"
+  ],
+  "pens": [
+    "keyboard keys",
+    "markers",
+    "pencils"
+  ],
+  "people": [
+    "background clutter",
+    "irrelevant items",
+    "similar objects"
+  ],
+  "peppers": [
+    "background clutter",
+    "irrelevant items",
+    "similar objects"
+  ],
+  "pigeons": [
+    "birds",
+    "cranes",
+    "crows",
+    "flamingos",
+    "geese"
+  ],
+  "pills": [
+    "beads",
+    "bottle caps",
+    "coins",
+    "stapler pins"
+  ],
+  "plates": [
+    "alcohol bottles",
+    "apples",
+    "balls",
+    "bottles",
+    "bowls"
+  ],
+  "polka dot tiles": [
+    "background clutter",
+    "irrelevant items",
+    "similar objects"
+  ],
+  "polka dots": [
+    "background clutter",
+    "irrelevant items",
+    "similar objects"
+  ],
+  "potato chips": [
+    "background clutter",
+    "irrelevant items",
+    "similar objects"
+  ],
+  "potatoes": [
+    "background clutter",
+    "irrelevant items",
+    "similar objects"
+  ],
+  "prawn crackers": [
+    "background clutter",
+    "irrelevant items",
+    "similar objects"
+  ],
+  "red beans": [
+    "background clutter",
+    "irrelevant items",
+    "similar objects"
+  ],
+  "rice bags": [
+    "background clutter",
+    "irrelevant items",
+    "similar objects"
+  ],
+  "roof tiles": [
+    "books",
+    "boxes",
+    "bricks",
+    "cassettes",
+    "comic books"
+  ],
+  "sauce bottles": [
+    "background clutter",
+    "irrelevant items",
+    "similar objects"
+  ],
+  "sausages": [
+    "background clutter",
+    "irrelevant items",
+    "similar objects"
+  ],
+  "screws": [
+    "background clutter",
+    "irrelevant items",
+    "similar objects"
+  ],
+  "sea shells": [
+    "background clutter",
+    "irrelevant items",
+    "similar objects"
+  ],
+  "seagulls": [
+    "birds",
+    "cranes",
+    "crows",
+    "flamingos",
+    "geese"
+  ],
+  "shallots": [
+    "background clutter",
+    "irrelevant items",
+    "similar objects"
+  ],
+  "sheep": [
+    "birds",
+    "buffaloes",
+    "camels",
+    "cows",
+    "elephants"
+  ],
+  "shirts": [
+    "background clutter",
+    "irrelevant items",
+    "similar objects"
+  ],
+  "shoes": [
+    "background clutter",
+    "irrelevant items",
+    "similar objects"
+  ],
+  "skateboard": [
+    "background clutter",
+    "irrelevant items",
+    "similar objects"
+  ],
+  "skis": [
+    "background clutter",
+    "irrelevant items",
+    "similar objects"
+  ],
+  "spoon": [
+    "background clutter",
+    "irrelevant items",
+    "similar objects"
+  ],
+  "spring rolls": [
+    "background clutter",
+    "irrelevant items",
+    "similar objects"
+  ],
+  "stairs": [
+    "background clutter",
+    "irrelevant items",
+    "similar objects"
+  ],
+  "stamps": [
+    "background clutter",
+    "irrelevant items",
+    "similar objects"
+  ],
+  "stapler pins": [
+    "beads",
+    "bottle caps",
+    "coins",
+    "pills"
+  ],
+  "sticky notes": [
+    "background clutter",
+    "irrelevant items",
+    "similar objects"
+  ],
+  "strawberries": [
+    "apples",
+    "grapes",
+    "peaches",
+    "tomatoes",
+    "watermelon"
+  ],
+  "straws": [
+    "background clutter",
+    "irrelevant items",
+    "similar objects"
+  ],
+  "sunglasses": [
+    "background clutter",
+    "irrelevant items",
+    "similar objects"
+  ],
+  "supermarket shelf": [
+    "background clutter",
+    "irrelevant items",
+    "similar objects"
+  ],
+  "swans": [
+    "background clutter",
+    "irrelevant items",
+    "similar objects"
+  ],
+  "toilet paper rolls": [
+    "background clutter",
+    "irrelevant items",
+    "similar objects"
+  ],
+  "tomatoes": [
+    "apples",
+    "balls",
+    "coins",
+    "grapes",
+    "peaches"
+  ],
+  "tree logs": [
+    "background clutter",
+    "irrelevant items",
+    "similar objects"
+  ],
+  "watches": [
+    "background clutter",
+    "irrelevant items",
+    "similar objects"
+  ],
+  "watermelon": [
+    "apples",
+    "grapes",
+    "peaches",
+    "strawberries",
+    "tomatoes"
+  ],
+  "windows": [
+    "books",
+    "boxes",
+    "bricks",
+    "cassettes",
+    "comic books"
+  ],
+  "zebras": [
+    "background clutter",
+    "irrelevant items",
+    "similar objects"
+  ]
+}

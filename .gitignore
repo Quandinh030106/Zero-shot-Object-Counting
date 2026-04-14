@@ -1,0 +1,17 @@
+# Bỏ qua cache
+__pycache__/
+*.pyc
+
+# Bỏ qua log và trọng số nặng
+wandb/
+*.pth
+*.pt
+*.npy
+
+# Bỏ qua toàn bộ thư mục chứa data nặng
+data/out/
+data/FSC147/images_384_VarV2/
+data/FSC147/comparison_results/
+data/FSC147/gt_density_map_adaptive_384_VarV2/
+data/FSC147/annotated_images/
+data/FSC147/annotated_images_n/
