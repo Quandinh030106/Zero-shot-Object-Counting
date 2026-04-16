@@ -1,0 +1,25 @@
+[22:43:47.556248] base lr: 1.00e-03
+[22:43:47.557232] actual lr: 7.81e-06
+[22:43:47.558827] accumulate grad iterations: 1
+[22:43:47.559909] effective batch size: 2
+[22:43:47.562033] AdamW (
+Parameter Group 0
+    amsgrad: False
+    betas: (0.9, 0.95)
+    capturable: False
+    eps: 1e-08
+    foreach: None
+    lr: 7.8125e-06
+    maximize: False
+    weight_decay: 0.0
+
+Parameter Group 1
+    amsgrad: False
+    betas: (0.9, 0.95)
+    capturable: False
+    eps: 1e-08
+    foreach: None
+    lr: 7.8125e-06
+    maximize: False
+    weight_decay: 0.05
+)

@@ -1,0 +1,24 @@
+2026-04-13 22:43:40,068 INFO    MainThread:29212 [wandb_setup.py:_flush():81] Current SDK version is 0.25.1
+2026-04-13 22:43:40,068 INFO    MainThread:29212 [wandb_setup.py:_flush():81] Configure stats pid to 29212
+2026-04-13 22:43:40,068 INFO    MainThread:29212 [wandb_setup.py:_flush():81] Loading settings from environment variables
+2026-04-13 22:43:40,068 INFO    MainThread:29212 [wandb_init.py:setup_run_log_directory():717] Logging user logs to D:\PROJECTS\Zero-Shot Object Counting\VA-Count\wandb\run-20260413_224340-tdlm3yym\logs\debug.log
+2026-04-13 22:43:40,079 INFO    MainThread:29212 [wandb_init.py:setup_run_log_directory():718] Logging internal logs to D:\PROJECTS\Zero-Shot Object Counting\VA-Count\wandb\run-20260413_224340-tdlm3yym\logs\debug-internal.log
+2026-04-13 22:43:40,079 INFO    MainThread:29212 [wandb_init.py:init():844] calling init triggers
+2026-04-13 22:43:40,079 INFO    MainThread:29212 [wandb_init.py:init():849] wandb.init called with sweep_config: {}
+config: {'batch_size': 2, 'epochs': 2, 'accum_iter': 1, 'model': 'mae_vit_base_patch16', 'mask_ratio': 0.5, 'norm_pix_loss': False, 'weight_decay': 0.05, 'lr': None, 'blr': 0.001, 'min_lr': 0.0, 'warmup_epochs': 10, 'data_path': './data/FSC147/', 'anno_file': WindowsPath('data/FSC147/annotation_FSC147_pos.json'), 'anno_file_negative': './data/FSC147/annotation_FSC147_neg.json', 'data_split_file': WindowsPath('data/FSC147/Train_Test_Val_FSC_147.json'), 'class_file': WindowsPath('data/FSC147/ImageClasses_FSC147.txt'), 'im_dir': WindowsPath('data/FSC147/images_384_VarV2'), 'output_dir': './data/out/fim6_dir', 'device': 'cuda', 'seed': 0, 'resume': './data/checkpoint.pth', 'do_resume': False, 'start_epoch': 0, 'num_workers': 2, 'pin_mem': True, 'do_aug': True, 'world_size': 1, 'local_rank': -1, 'dist_on_itp': False, 'dist_url': 'env://', 'title': 'Test_Baseline', 'wandb': 'ZeroShot-Counting', 'team': 'wsense', 'wandb_id': None, 'distributed': False, '_wandb': {}}
+2026-04-13 22:43:40,080 INFO    MainThread:29212 [wandb_init.py:init():892] starting backend
+2026-04-13 22:43:42,570 INFO    MainThread:29212 [wandb_init.py:init():895] sending inform_init request
+2026-04-13 22:43:42,588 INFO    MainThread:29212 [wandb_init.py:init():903] backend started and connected
+2026-04-13 22:43:42,616 INFO    MainThread:29212 [wandb_init.py:init():973] updated telemetry
+2026-04-13 22:43:42,663 INFO    MainThread:29212 [wandb_init.py:init():997] communicating run to backend with 90.0 second timeout
+2026-04-13 22:43:46,589 INFO    MainThread:29212 [wandb_init.py:init():1042] starting run threads in backend
+2026-04-13 22:43:46,695 INFO    MainThread:29212 [wandb_run.py:_console_start():2524] atexit reg
+2026-04-13 22:43:46,695 INFO    MainThread:29212 [wandb_run.py:_redirect():2373] redirect: wrap_raw
+2026-04-13 22:43:46,695 INFO    MainThread:29212 [wandb_run.py:_redirect():2442] Wrapping output streams.
+2026-04-13 22:43:46,695 INFO    MainThread:29212 [wandb_run.py:_redirect():2465] Redirects installed.
+2026-04-13 22:43:46,699 INFO    MainThread:29212 [wandb_init.py:init():1082] run started, returning control to user process
+2026-04-13 22:43:47,563 INFO    MainThread:29212 [wandb_run.py:_finish():2291] finishing run anhquandinhpham-i-h-c-qu-c-gia-tp-hcm/ZeroShot-Counting/tdlm3yym
+2026-04-13 22:43:47,564 INFO    MainThread:29212 [wandb_run.py:_atexit_cleanup():2490] got exitcode: 0
+2026-04-13 22:43:47,564 INFO    MainThread:29212 [wandb_run.py:_restore():2472] restore
+2026-04-13 22:43:47,565 INFO    MainThread:29212 [wandb_run.py:_restore():2478] restore done
+2026-04-13 22:43:49,330 INFO    MainThread:29212 [wandb_run.py:_footer_sync_info():3868] logging synced files

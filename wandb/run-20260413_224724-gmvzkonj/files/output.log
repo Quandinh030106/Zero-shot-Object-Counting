@@ -1,0 +1,34 @@
+[22:47:33.834112] base lr: 1.00e-03
+[22:47:33.838638] actual lr: 7.81e-06
+[22:47:33.841819] accumulate grad iterations: 1
+[22:47:33.847991] effective batch size: 2
+[22:47:33.856129] AdamW (
+Parameter Group 0
+    amsgrad: False
+    betas: (0.9, 0.95)
+    capturable: False
+    eps: 1e-08
+    foreach: None
+    lr: 7.8125e-06
+    maximize: False
+    weight_decay: 0.0
+
+Parameter Group 1
+    amsgrad: False
+    betas: (0.9, 0.95)
+    capturable: False
+    eps: 1e-08
+    foreach: None
+    lr: 7.8125e-06
+    maximize: False
+    weight_decay: 0.05
+)
+[22:47:33.863065] Start training for 2 epochs   -   rank 0
+Train [e. 0 - r. 0]: 100%|█████████████████████████████████████████████████████████| 1830/1830 [16:24<00:00,  1.86it/s]
+Val [e. 0 - r. 0]: 100%|█████████████████████████████████████████████████████████████| 643/643 [00:58<00:00, 11.05it/s]
+[23:04:59.134089] checkpoint sent to W&B (if)
+[23:05:03.009420] checkpoint sent to W&B (if)
+[23:05:03.013546] [Train Epoch #0] - MAE:   inf, RMSE:   inf
+[23:05:03.015701] [Val Epoch #0] - MAE: 49.54, RMSE: 97.08, NAE:  1.51
+Train [e. 1 - r. 0]: 100%|█████████████████████████████████████████████████████████| 1830/1830 [12:55<00:00,  2.36it/s]
+Val [e. 1 - r. 0]:  52%|███████████████████████████████▍                             | 332/643 [00:45<00:21, 14.69it/s]

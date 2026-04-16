@@ -1,0 +1,54 @@
+{
+  "os": "Windows-10-10.0.26200-SP0",
+  "python": "CPython 3.10.20",
+  "startedAt": "2026-04-13T15:47:24.993231Z",
+  "args": [
+    "--epochs",
+    "2",
+    "--batch_size",
+    "2",
+    "--num_workers",
+    "2",
+    "--wandb",
+    "ZeroShot-Counting",
+    "--title",
+    "Test_Baseline",
+    "--resume",
+    ""
+  ],
+  "program": "D:\\PROJECTS\\Zero-Shot Object Counting\\VA-Count\\FSC_train.py",
+  "codePath": "FSC_train.py",
+  "codePathLocal": "FSC_train.py",
+  "git": {
+    "remote": "https://github.com/HopooLinZ/VA-Count.git",
+    "commit": "30f2d0ec6c2926d6c97cb13b9669db274ef9ef56"
+  },
+  "email": "anhquandinhpham@gmail.com",
+  "root": "D:\\PROJECTS\\Zero-Shot Object Counting\\VA-Count",
+  "host": "DESKTOP-TL9U32D",
+  "executable": "C:\\ProgramData\\miniconda3\\envs\\AI_env\\python.exe",
+  "cpu_count": 8,
+  "cpu_count_logical": 12,
+  "gpu": "NVIDIA GeForce RTX 3050 6GB Laptop GPU",
+  "gpu_count": 1,
+  "disk": {
+    "/": {
+      "total": "512108785664",
+      "used": "42071035904"
+    }
+  },
+  "memory": {
+    "total": "21168513024"
+  },
+  "gpu_nvidia": [
+    {
+      "name": "NVIDIA GeForce RTX 3050 6GB Laptop GPU",
+      "memoryTotal": "6442450944",
+      "cudaCores": 2560,
+      "architecture": "Ampere",
+      "uuid": "GPU-c06fd9bd-aad9-fc7e-ece6-312ca2782f4a"
+    }
+  ],
+  "cudaVersion": "13.0",
+  "writerId": "hw0155fn7sw3i8astsx32aa1brg7hlnz"
+}
