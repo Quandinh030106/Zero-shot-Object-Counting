@@ -25,7 +25,7 @@ from util.misc import NativeScalerWithGradNormCount as NativeScaler
 import util.lr_sched as lr_sched
 from util.FSC147 import transform_train, transform_val
 import models_mae_cross
-
+from util.loss import ZeroShotCountingLoss
 
 def get_args_parser():
     parser = argparse.ArgumentParser('MAE pre-training', add_help=True)
@@ -272,6 +272,8 @@ def main(args):
 
         loss_scaler = NativeScaler()
 
+        # Define the loss function
+        criterion = ZeroShotCountingLoss(lambda_c=0.1, lambda_d=1.0, lambda_cnt=0.1, margin=0.5).to(device)
         min_MAE = 99999
         print_freq = 50
         save_freq = 50
@@ -319,43 +321,10 @@ def main(args):
                     shot_num = random.randint(1, 3)
 
                 with torch.cuda.amp.autocast():
-                    # Positive sample output
-                    pos_output = model(samples, pos_boxes, shot_num)  # Positive sample output
+                    pos_output = model(samples, pos_boxes, shot_num)
+                    neg_output = model(samples, neg_boxes, 1)
 
-                # Compute positive sample loss
-                mask = np.random.binomial(n=1, p=0.8, size=[384, 384])
-                masks = np.tile(mask, (pos_output.shape[0], 1))
-                masks = masks.reshape(pos_output.shape[0], 384, 384)
-                masks = torch.from_numpy(masks).to(device)
-                pos_loss = ((pos_output - gt_density) ** 2)
-                pos_loss = (pos_loss * masks / (384 * 384)).sum() / pos_output.shape[0]
-                # Negative sample output
-
-                with torch.cuda.amp.autocast():
-                    neg_output = model(samples, neg_boxes, 1)  # Negative sample output
-                
-                cnt1 = 1-torch.exp(-(torch.abs(pos_output.sum()/60 - gt_density.sum()/60).mean()))
-                if neg_output.shape[0] == 0:
-                    cnt2 = 0
-                else:
-                    # cnt2 = torch.log(torch.abs((neg_output.sum() / neg_output.shape[0]) - 1).mean()+1)
-                    cnt2 = 1-torch.exp(-(torch.abs((neg_output.sum() / (neg_output.shape[0]*60)) - 1).mean()))
-                cnt = cnt1+cnt2
-
-                # Compute negative sample loss
-                mask = np.random.binomial(n=1, p=0.8, size=[384, 384])
-                masks = np.tile(mask, (neg_output.shape[0], 1))
-                masks = masks.reshape(neg_output.shape[0], 384, 384)
-                masks = torch.from_numpy(masks).to(device)
-                neg_loss = ((neg_output - gt_density) ** 2)
-                if neg_output.shape[0] == 0:
-                    neg_loss = 1
-                else:
-                    neg_loss = (neg_loss * masks / (384 * 384)).sum() / neg_output.shape[0]
-                margin = 0.5
-                contrastive_loss = torch.relu(pos_loss - neg_loss + margin)
-                total_loss = contrastive_loss+pos_loss
-
+                total_loss, loss_dict = criterion(pos_output, neg_output, gt_density)
 
                 # Update MAE and RMSE
                 with torch.no_grad():
@@ -386,7 +355,10 @@ def main(args):
                         log = {"train/loss": loss_value_reduce,
                                "train/lr": lr,
                                "train/MAE": batch_mae,
-                               "train/RMSE": batch_mse ** 0.5}
+                               "train/RMSE": batch_mse ** 0.5,
+                               "train/loss_density": loss_dict["loss_density"],
+                               "train/loss_count": loss_dict["loss_count"],
+                               "train/loss_contrastive": loss_dict["loss_contrastive"]}
                         wandb.log(log, step=idx)
 
             # evaluation on Validation split

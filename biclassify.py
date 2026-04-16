@@ -10,6 +10,7 @@ from sklearn.model_selection import train_test_split
 import clip
 import re
 import torchvision.models as models
+import json
 # 1. Read data and preprocess
 def read_label_file(file_path):
     data = []
@@ -19,13 +20,13 @@ def read_label_file(file_path):
             data.append([image_name, 1 if label == 'one' else 0])
     return pd.DataFrame(data, columns=['image', 'label'])
 # Read image names in a.txt
-with open('./data/FSC147/train.txt', 'r') as file:
-    a_txt_images = file.read().splitlines()
+with open('./data/FSC147/Train_Test_Val_FSC_147.json', 'r') as file:
+    data_split = json.load(file)
 
-# Extract numbers before .jpg
+a_txt_images = data_split['train']
+
 a_txt_numbers = set([name.split('.')[0] for name in a_txt_images])
 
-# Read image names and labels from label.txt
 with open('./data/FSC147/one/labels.txt', 'r') as file:
     label_txt_lines = file.read().splitlines()
 
@@ -117,7 +118,7 @@ class ResNetClassifier(nn.Module):
         return self.resnet50(images)
 
 # 5. Training and testing
-device = torch.device("cuda:5" if torch.cuda.is_available() else "cpu")
+device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
 clip_model, _ = clip.load("ViT-B/32", device=device)
 # model = ClipClassifier(clip_model).to(device)
 model = ResNetClassifier().to(device)
