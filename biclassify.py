@@ -27,6 +27,7 @@ a_txt_images = data_split['train']
 
 a_txt_numbers = set([name.split('.')[0] for name in a_txt_images])
 
+# Read image names and labels from label.txt
 with open('./data/FSC147/one/labels.txt', 'r') as file:
     label_txt_lines = file.read().splitlines()
 

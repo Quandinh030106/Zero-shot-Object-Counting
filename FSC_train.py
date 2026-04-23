@@ -113,23 +113,28 @@ os.environ["CUDA_LAUNCH_BLOCKING"] = '0'
 
 class TrainData(Dataset):
     def __init__(self, args, split='train', do_aug=True):
-        with open(args.anno_file) as f:
+        data_path = Path(args.data_path)
+        
+        with open(data_path / args.anno_file) as f:
             annotations = json.load(f)
-        # Load negative sample bounding boxes
-        with open(args.anno_file_negative) as f:
+            
+        with open(data_path / args.anno_file_negative) as f:
             neg_annotations = json.load(f)
-        with open(args.data_split_file) as f:
+            
+        with open(data_path / args.data_split_file) as f:
             data_split = json.load(f)
 
         self.img = data_split[split]
         random.shuffle(self.img)
         self.split = split
-        self.img_dir = im_dir
+        
+        self.img_dir = data_path / args.im_dir
+        self.im_dir = data_path / args.im_dir
+        
         self.TransformTrain = transform_train(args, do_aug=do_aug)
         self.TransformVal = transform_val(args)
         self.annotations = annotations
         self.neg_annotations = neg_annotations
-        self.im_dir = im_dir
 
     def __len__(self):
         return len(self.img)
@@ -305,11 +310,11 @@ def main(args):
 
                 if data_iter_step % accum_iter == 0:
                     lr_sched.adjust_learning_rate(optimizer, data_iter_step / len(data_loader_train) + epoch, args)
-
-                samples = samples.to(device, non_blocking=True, dtype=torch.half)
-                gt_density = gt_density.to(device, non_blocking=True, dtype=torch.half)
-                pos_boxes = pos_boxes.to(device, non_blocking=True, dtype=torch.half)
-                neg_boxes = neg_boxes.to(device, non_blocking=True, dtype=torch.half)
+                #Thay torch.float bằng torch.half để giảm VRAM usage
+                samples = samples.to(device, non_blocking=True, dtype=torch.float)
+                gt_density = gt_density.to(device, non_blocking=True, dtype=torch.float)
+                pos_boxes = pos_boxes.to(device, non_blocking=True, dtype=torch.float)
+                neg_boxes = neg_boxes.to(device, non_blocking=True, dtype=torch.float)
 
                 # If at least one image in the batch uses Type 2 Mosaic, disallow 0-shot.
                 flag = 0
@@ -342,7 +347,7 @@ def main(args):
                     sys.exit(1)
 
                 total_loss /= accum_iter
-                loss_scaler(total_loss, optimizer, parameters=model.parameters(),
+                loss_scaler(total_loss, optimizer,clip_grad=1.0, parameters=model.parameters(),
                             update_grad=(data_iter_step + 1) % accum_iter == 0)
                 if (data_iter_step + 1) % accum_iter == 0:
                     optimizer.zero_grad()
@@ -479,25 +484,17 @@ def main(args):
         if wandb_run is not None:
             wandb.run.finish()
 
-
 if __name__ == '__main__':
     args = get_args_parser()
     args = args.parse_args()
 
-    data_path = Path(args.data_path)
-    anno_file = data_path / args.anno_file
-    data_split_file = data_path / args.data_split_file
-    im_dir = data_path / args.im_dir
+    args.anno_file = 'annotation_FSC147_pos.json'
+    args.anno_file_negative = 'annotation_FSC147_neg.json'
+    args.data_split_file = 'Train_Test_Val_FSC_147.json'
+    args.im_dir = 'images_384_VarV2'
+    args.class_file = 'ImageClasses_FSC147.txt'
 
-    if args.do_aug:
-        class_file = data_path / args.class_file
-    else:
-        class_file = None
-
-    args.anno_file = anno_file
-    args.data_split_file = data_split_file
-    args.im_dir = im_dir
-    args.class_file = class_file
+    im_dir = Path(args.data_path) / args.im_dir
 
     if args.output_dir:
         Path(args.output_dir).mkdir(parents=True, exist_ok=True)

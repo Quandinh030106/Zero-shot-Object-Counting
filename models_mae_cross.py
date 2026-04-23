@@ -195,6 +195,7 @@ class SupervisedMAE(nn.Module):
         x = F.interpolate(
                         self.decode_head3(x), size=x.shape[-1]*2, mode='bilinear', align_corners=False)
         x = x.squeeze(-3)
+        x = torch.clamp(x, min=-1e3, max=1e3)
 
         return x
 
