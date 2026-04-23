@@ -145,7 +145,7 @@ def process_images(text_file_path, dataset_path, model, preprocess, binary_class
                     patches_object = torch.cat((patches_object, default_box.to(boxes_object.device)), dim=0)
                     top_3_indices.append(len(patches_object) - 1)
 
-            boxes_dict[image_name] = [patches_object[idx].cpu().numpy().tolist() * np.array([w, h, w, h], dtype=np.float32) for idx in top_3_indices]
+            boxes_dict[image_name] = [(patches_object[idx].cpu().numpy() * np.array([w, h, w, h])).tolist() for idx in top_3_indices]
 
     return boxes_dict
 
