@@ -8,6 +8,8 @@ import random
 from pathlib import Path
 import sys
 from PIL import Image
+import matplotlib.pyplot as plt
+import io
 import torch.nn.functional as F
 import torch
 import torch.backends.cudnn as cudnn
@@ -110,6 +112,24 @@ def get_args_parser():
 
 
 os.environ["CUDA_LAUNCH_BLOCKING"] = '0'
+
+def tensor_to_heatmap(tensor):
+    arr = tensor.float().detach().cpu().numpy()  
+    while arr.ndim > 2:
+        arr = arr.squeeze(0)
+    vmax = float(arr.max())
+    if vmax <= 0:
+        vmax = 1e-9
+    fig, ax = plt.subplots(figsize=(4, 4), dpi=96)
+    ax.imshow(arr, cmap='jet', vmin=0, vmax=vmax)  
+    ax.axis('off')
+    buf = io.BytesIO()
+    plt.savefig(buf, format='png', bbox_inches='tight', pad_inches=0)
+    plt.close(fig)
+    buf.seek(0)
+    img = Image.open(buf); img.load()
+    return img.convert('RGB')
+    
 
 class TrainData(Dataset):
     def __init__(self, args, split='train', do_aug=True):
@@ -409,19 +429,28 @@ def main(args):
                 train_wandb_bboxes = []
                 val_wandb_densities = []
                 val_wandb_bboxes = []
-                black = torch.zeros([384, 384], device=device)
 
                 for i in range(pos_output.shape[0]):
-                    # gt and predicted density
-                    w_d_map = torch.stack([pos_output[i], black, black])
-                    gt_map = torch.stack([gt_density[i], black, black])
+                    # gt and predicted density - heatmap visualization
+                    pos_out_vis = pos_output[i].float()
+                    gt_vis = gt_density[i].float()
+
+                    heatmap_pred = tensor_to_heatmap(pos_out_vis)
+                    heatmap_gt = tensor_to_heatmap(gt_vis)
+
+                    # overlay: original image + box
                     box_map = misc.get_box_map(samples[i], pos[i], device)
-                    w_gt_density = samples[i] / 2 + gt_map + box_map
-                    w_d_map_overlay = samples[i] / 2 + w_d_map
-                    w_densities = torch.cat([w_gt_density, w_d_map, w_d_map_overlay], dim=2)
-                    w_densities = torch.clamp(w_densities, 0, 1)
-                    train_wandb_densities += [wandb.Image(torchvision.transforms.ToPILImage()(w_densities),
-                                                          caption=f"[E#{epoch}] {im_names[i]} ({torch.sum(gt_density[i]).item()}, {torch.sum(pos_output[i]).item()})")]
+                    w_gt_density = torch.clamp(samples[i] / 2 + box_map, 0, 1)
+                    orig_img = torchvision.transforms.ToPILImage()(w_gt_density.cpu())
+
+                    # concatenate: original+box | gt heatmap | pred heatmap
+                    combined = Image.new('RGB', (orig_img.width * 3, orig_img.height))
+                    combined.paste(orig_img, (0, 0))
+                    combined.paste(heatmap_gt.resize((orig_img.width, orig_img.height)), (orig_img.width, 0))
+                    combined.paste(heatmap_pred.resize((orig_img.width, orig_img.height)), (orig_img.width * 2, 0))
+
+                    train_wandb_densities += [wandb.Image(combined,
+                                                          caption=f"[E#{epoch}] {im_names[i]} (gt={torch.sum(gt_density[i]).item():.1f}, pred={torch.sum(pos_output[i]).item():.1f})")]
 
                     # exemplars
                     w_boxes = torch.cat([pos_boxes[i][x, :, :, :] for x in range(pos_boxes[i].shape[0])], 2)
@@ -429,16 +458,26 @@ def main(args):
                                                        caption=f"[E#{epoch}] {im_names[i]}")]
 
                 for i in range(val_output.shape[0]):
-                    # gt and predicted density
-                    w_d_map = torch.stack([val_output[i], black, black])
-                    gt_map = torch.stack([val_gt_density[i], black, black])
+                    # gt and predicted density - heatmap visualization
+                    val_out_vis = val_output[i].float()
+                    val_gt_vis = val_gt_density[i].float()
+
+                    heatmap_pred = tensor_to_heatmap(val_out_vis)
+                    heatmap_gt = tensor_to_heatmap(val_gt_vis)
+
+                    # overlay: original image + box
                     box_map = misc.get_box_map(val_samples[i], val_pos[i], device)
-                    w_gt_density = val_samples[i] / 2 + gt_map + box_map
-                    w_d_map_overlay = val_samples[i] / 2 + w_d_map
-                    w_densities = torch.cat([w_gt_density, w_d_map, w_d_map_overlay], dim=2)
-                    w_densities = torch.clamp(w_densities, 0, 1)
-                    val_wandb_densities += [wandb.Image(torchvision.transforms.ToPILImage()(w_densities),
-                                                        caption=f"[E#{epoch}] {val_im_names[i]} ({torch.sum(val_gt_density[i]).item()}, {torch.sum(val_output[i]).item()})")]
+                    w_gt_density = torch.clamp(val_samples[i].float() / 2 + box_map, 0, 1)
+                    orig_img = torchvision.transforms.ToPILImage()(w_gt_density.cpu())
+
+                    # concatenate: original+box | gt heatmap | pred heatmap
+                    combined = Image.new('RGB', (orig_img.width * 3, orig_img.height))
+                    combined.paste(orig_img, (0, 0))
+                    combined.paste(heatmap_gt.resize((orig_img.width, orig_img.height)), (orig_img.width, 0))
+                    combined.paste(heatmap_pred.resize((orig_img.width, orig_img.height)), (orig_img.width * 2, 0))
+
+                    val_wandb_densities += [wandb.Image(combined,
+                                                        caption=f"[E#{epoch}] {val_im_names[i]} (gt={torch.sum(val_gt_density[i]).item():.1f}, pred={torch.sum(val_output[i]).item():.1f})")]
 
                     # exemplars
                     w_boxes = torch.cat([val_boxes[i][x, :, :, :] for x in range(val_boxes[i].shape[0])], 2)
